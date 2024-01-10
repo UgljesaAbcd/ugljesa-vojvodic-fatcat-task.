@@ -6,9 +6,12 @@
         "noImplicitThis": true,
         "jsx": "react-jsx",
         "sourceMap": true,
+        "lib": ["ES2023", "dom"],
         "baseUrl": ".",
         "paths": {
-            "@homework-task/*": ["src/*"]
+            "@homework-task/*": ["src/*"],
+            "@common/*": ["src/common/*"],
+            "@services/*": ["src/services/*"]
         }
     },
     "include": [

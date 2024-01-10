@@ -2,7 +2,7 @@ import './styles.css';
 
 import { FC } from 'react';
 
-import Button from '@homework-task/components/Button';
+import MyFormGenerator from './components/MyFormGenerator/MyFormGenerator';
 
 type AppProps = {
     tab: string;
@@ -11,9 +11,7 @@ type AppProps = {
 const App: FC<AppProps> = ({ tab }) => {
     return (
         <main>
-            <Button onClick={(e) => {}} className={'test'}>
-                test
-            </Button>
+            <MyFormGenerator />
         </main>
     );
 };

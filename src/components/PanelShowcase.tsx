@@ -1,6 +1,18 @@
-import clsx from 'clsx';
+import { FC } from 'react';
 
-export const PanelShowcase = ({ items }) => {
+import { clsx } from 'clsx';
+
+interface Item {
+    title: string;
+    description: string;
+    image: string;
+}
+
+interface PanelShowcaseProps {
+    items: Item[];
+}
+
+const PanelShowcase: FC<PanelShowcaseProps> = ({ items }) => {
     return (
         <div className={clsx('flex', 'justify-center', 'items-center')}>
             <div
@@ -36,3 +48,5 @@ export const PanelShowcase = ({ items }) => {
         </div>
     );
 };
+
+export default PanelShowcase;
