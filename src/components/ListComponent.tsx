@@ -1,5 +1,7 @@
 import { useEffect, useState, FC } from 'react';
 
+import { getByPathAndParams } from '@homework-task/services/BaseApi';
+
 interface User {
     id: number;
     name: string;
@@ -8,20 +10,19 @@ interface User {
     phone: string;
 }
 
-const UserList: FC = () => {
+const ListComponent: FC = () => {
     const [users, setUsers] = useState<User[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(
-                    'https://jsonplaceholder.typicode.com/users'
-                );
-                if (!response.ok) {
+                const response = await getByPathAndParams({ path: '/users' });
+
+                if (response.status !== 200) {
                     throw new Error('Network response was not ok');
                 }
 
-                const data: User[] = await response.json();
+                const data: User[] = await response.data;
                 setUsers(data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -50,4 +51,4 @@ const UserList: FC = () => {
     );
 };
 
-export default UserList;
+export default ListComponent;

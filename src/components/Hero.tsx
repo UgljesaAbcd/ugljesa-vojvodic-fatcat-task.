@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-interface HeroProps {
+export interface HeroProps {
     title: string;
     image: string;
 }
