@@ -10,7 +10,7 @@ const filterEmptyStrings = (
     filterObject: FilterObject | undefined
 ): FilterObject | undefined => {
     if (!filterObject) return undefined;
-    let checkedObj = copyObjectWithoutRef(filterObject);
+    const checkedObj = copyObjectWithoutRef(filterObject);
 
     Object.keys(checkedObj).map((column) => {
         if (
@@ -26,7 +26,7 @@ const filterEmptyStrings = (
 
 const copyObjectWithoutRef = (
     providedObj: FilterObject | undefined
-): FilterObject => JSON.parse(JSON.stringify(providedObj));
+): FilterObject => JSON.parse(JSON.stringify(providedObj)) as FilterObject;
 
 const insertPathVariables = (
     path: string,
@@ -37,7 +37,7 @@ const insertPathVariables = (
     }
     const placeholderRegex = /:([A-z]*)/g;
 
-    return path.replace(placeholderRegex, (_, placeholder) => {
+    return path.replace(placeholderRegex, (_, placeholder: string) => {
         const value = pathVariables[placeholder];
         return value !== undefined ? String(value) : `:${placeholder}`;
     });

@@ -1,23 +1,24 @@
 import { FC } from 'react';
 
+import TrustBar, { TrustBarProps } from '@homework-task/components/TrustBar';
+
 import Hero, { HeroProps } from '../Hero';
 import ItemsShowcase, { ItemsShowcaseProps } from '../ItemsShowcase';
-import TrustBar, { TrustBarProps } from '../TrustBar';
 
-interface ComponentProps {
-    [key: string]: any;
+interface SectionProps {
+    backgroundColor?: string;
 }
 
 interface Component {
     type: string;
     componentKey: number;
-    props?: ComponentProps;
+    props?: ItemsShowcaseProps | HeroProps | TrustBarProps;
 }
 
 interface Section {
     type: string;
     sectionKey: number;
-    props?: ComponentProps;
+    props?: SectionProps;
     components: Array<Component>;
 }
 

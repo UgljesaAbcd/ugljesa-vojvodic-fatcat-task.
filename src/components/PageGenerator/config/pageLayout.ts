@@ -7,7 +7,7 @@ export const dataLayoutConfig = [
             {
                 type: 'componentHero',
                 componentKey: 1,
-                props: { title: 'I am Hero', image: 'public/media/hero.png' },
+                props: { title: 'I am Hero', image: '/media/hero.png' },
             },
         ],
     },
@@ -37,9 +37,9 @@ export const dataLayoutConfig = [
                 componentKey: 2,
                 props: {
                     images: [
-                        'public/media/cats/cat_1.png',
-                        'public/media/cats/cat_3.png',
-                        'public/media/cats/cat_7.png',
+                        '/media/cats/cat_1.png',
+                        '/media/cats/cat_3.png',
+                        '/media/cats/cat_7.png',
                     ],
                 },
             },

@@ -29,7 +29,7 @@ interface DefaultOptions {
         | undefined;
     method?: string;
     params?: Record<string, string | number | boolean> | undefined;
-    data?: any;
+    data?: Record<string, string | number | boolean | undefined> | undefined;
     url?: string | undefined;
     responseType?: AxiosResponseType | undefined;
 }
@@ -83,14 +83,15 @@ export const putByPathAndData = <T>({
     path = '/',
     data,
     pathVariables,
+    ...rest
 }: AxiosRequestParams<T> = {}) => {
-    return baseApiInstance(
-        getDefaultOptions({
-            url: insertPathVariables(path, pathVariables),
-            data,
-            method: 'put',
-        })
-    );
+    const requestOptions: AxiosRequestConfig = {
+        url: insertPathVariables(path, pathVariables),
+        data,
+        method: 'put',
+        ...rest,
+    };
+    return baseApiInstance(getDefaultOptions(requestOptions));
 };
 
 export const postByPathAndData = <T>({

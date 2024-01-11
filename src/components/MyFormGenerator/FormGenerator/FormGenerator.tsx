@@ -1,9 +1,11 @@
 import { FC, ReactNode } from 'react';
-import { useFormik, FormikHelpers } from 'formik';
 
-import { AnySchema } from 'yup';
+import { useFormik } from 'formik';
 
 import { postByPathAndData } from '@homework-task/services/BaseApi';
+
+import type { FormikHelpers } from 'formik';
+import type { AnySchema } from 'yup';
 
 interface FormValues {
     title: string;
@@ -23,27 +25,42 @@ type FormikSubmitHandler<V> = (
     actions: FormikHelpers<V>
 ) => void;
 
+interface ResponseType {
+    id: number;
+    title: string;
+    body: string;
+}
+
+const createPostCall = async (values: object): Promise<ResponseType> => {
+    const response = await postByPathAndData({
+        path: '/posts',
+        data: values,
+    });
+    if (response.status === 201) {
+        const { id, title, body } = response.data as ResponseType;
+
+        return { id, title, body };
+    } else {
+        throw new Error(`Request failed with status: ${response.status}`);
+    }
+};
+
 const FormGenerator: FC<FormGeneratorProps> = ({
     renderForm,
     validationSchema,
     initialValues,
 }) => {
-    const onSubmit: FormikSubmitHandler<FormValues> = async (
-        values,
-        actions
-    ) => {
-        try {
-            const response = await postByPathAndData({
-                path: '/posts',
-                data: values,
-            });
-            console.log('Post created:', response.data);
-        } catch (error) {
-            console.error('Error:', error);
-            actions.setErrors({ title: 'Post failed.' });
-        } finally {
-            actions.setSubmitting(false);
-        }
+    const onSubmit: FormikSubmitHandler<FormValues> = (values, actions) => {
+        void (async () => {
+            try {
+                const response = await createPostCall(values);
+                alert(response.id);
+            } catch (error) {
+                actions.setErrors({ title: 'Post failed.' });
+            } finally {
+                actions.setSubmitting(false);
+            }
+        })();
     };
 
     const formik = useFormik({

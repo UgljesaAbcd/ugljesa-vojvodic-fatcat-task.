@@ -5,7 +5,7 @@ const config = {
     root: true,
     env: {
         browser: true,
-        es2020: true,
+        es2021: true,
     },
     extends: [
         'eslint:recommended',
@@ -17,8 +17,7 @@ const config = {
         'plugin:prettier/recommended',
         'prettier',
     ],
-    ignorePatterns: ['dist', '.eslintrc.cjs'],
-    settings: { react: { version: '18.2' } },
+    ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.js'],
     parser: '@typescript-eslint/parser',
     plugins: [
         'react-refresh',
@@ -48,6 +47,24 @@ const config = {
             },
         },
     ],
+    settings: {
+        react: {
+            version: '18.2',
+        },
+        'import/resolver': {
+            node: {
+                moduleDirectory: ['node_modules'],
+            },
+            alias: {
+                map: [
+                    ['@homework-task', './src/'],
+                    ['@common', './src/common/'],
+                    ['@services', './src/services/'],
+                ],
+                extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            },
+        },
+    },
     rules: {
         'react-refresh/only-export-components': [
             'warn',
@@ -60,6 +77,7 @@ const config = {
         'react/prop-types': 'off',
         'react-hooks/exhaustive-deps': 'error',
         'no-undef': 'error',
+        eqeqeq: 'error',
         'no-console': 'error',
         'no-unused-vars': 'error',
         'import/order': [

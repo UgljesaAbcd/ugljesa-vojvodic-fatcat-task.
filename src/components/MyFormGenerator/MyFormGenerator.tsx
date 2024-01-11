@@ -1,11 +1,11 @@
-import FormGenerator from '@homework-task/components/MyFormGenerator/FormGenerator/FormGenerator';
-
 import * as Yup from 'yup';
 
-import Button from '../Button';
-import TextField from './FormGenerator/TextField';
-
 import { clsx } from 'clsx';
+
+import FormGenerator from '@homework-task/components/MyFormGenerator/FormGenerator/FormGenerator';
+
+import TextField from './FormGenerator/TextField';
+import Button from '../Button';
 
 interface FormValues {
     title: string;

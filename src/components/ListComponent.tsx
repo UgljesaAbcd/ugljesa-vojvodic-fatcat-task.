@@ -10,26 +10,29 @@ interface User {
     phone: string;
 }
 
+const fetchUsers = async (): Promise<User[]> => {
+    const response = await getByPathAndParams({ path: '/users' });
+    if (response.status !== 200) {
+        throw new Error('Network response was not ok');
+    }
+    const data = response.data as User[];
+    return data;
+};
+
 const ListComponent: FC = () => {
     const [users, setUsers] = useState<User[]>([]);
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchData = async (): Promise<void> => {
             try {
-                const response = await getByPathAndParams({ path: '/users' });
-
-                if (response.status !== 200) {
-                    throw new Error('Network response was not ok');
-                }
-
-                const data: User[] = await response.data;
+                const data = await fetchUsers();
                 setUsers(data);
             } catch (error) {
-                console.error('Error fetching data:', error);
+                alert(error);
             }
         };
 
-        fetchData();
+        void fetchData();
     }, []);
 
     return (

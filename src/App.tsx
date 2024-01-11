@@ -3,14 +3,14 @@ import './styles.css';
 import { FC } from 'react';
 
 import MyFormGenerator from './components/MyFormGenerator/MyFormGenerator';
-import PageGenerator from './components/PageGenerator/PageGenerator';
 import { dataLayoutConfig } from './components/PageGenerator/config/pageLayout';
+import PageGenerator from './components/PageGenerator/PageGenerator';
 
 type AppProps = {
     tab: string;
 };
 
-const App: FC<AppProps> = ({ tab }) => {
+const App: FC<AppProps> = () => {
     return (
         <main>
             <MyFormGenerator />
