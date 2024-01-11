@@ -2,9 +2,9 @@ import * as Yup from 'yup';
 
 import { clsx } from 'clsx';
 
-import FormGenerator from '@homework-task/components/MyFormGenerator/FormGenerator/FormGenerator';
+import FormGenerator from '@homework-task/components/MyFormGenerator/components/FormGenerator';
 
-import TextField from './FormGenerator/TextField';
+import TextField from './components/TextField';
 import Button from '../Button';
 
 interface FormValues {
@@ -15,10 +15,10 @@ interface FormValues {
 const validationSchema = Yup.object({
     title: Yup.string()
         .required('Title is required')
-        .max(50, 'Title must be at most 50 characters'),
+        .max(30, 'Title must be at most 30 characters'),
     body: Yup.string()
         .required('Body is required')
-        .max(200, 'Body must be at most 200 characters'),
+        .max(30, 'Body must be at most 30 characters'),
 });
 
 const initialValues: FormValues = {

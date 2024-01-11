@@ -55,6 +55,7 @@ const FormGenerator: FC<FormGeneratorProps> = ({
             try {
                 const response = await createPostCall(values);
                 alert(response.id);
+                actions.resetForm();
             } catch (error) {
                 actions.setErrors({ title: 'Post failed.' });
             } finally {

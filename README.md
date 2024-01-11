@@ -2,7 +2,7 @@
 
 ## Undone parts of task
 
-Sorry for having some of the tasks I left unfinished, but due to lack of time, I didn't manage to finish all requirements from homework-task.
+Sorry for having some of the tasks that I left unfinished, but due to lack of time, I didn't manage to finish all requirements from homework-task.
 
 For control of commit I would use libraries like husky, lint-staged and commitlint, in order to avoid to have code that didn't pass eslint check, or to have inappropriate commit messages.
 
@@ -15,8 +15,9 @@ Below is list of my node package management tools:
 -   npm: 10.1.0
 -   yarn: 1.22.19
 
--   In order to initialize project, it is required to have [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable) package manager.
+In order to initialize project, it is required to have:
 
+-   [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable) package manager.
 -   Clone the repository from [gitHub](https://github.com/UgljesaAbcd/ugljesa-vojvodic-fatcat-task..git)
 
 **Install packages with yarn:**
@@ -34,7 +35,7 @@ As I'm not that familiar with libraries that are mentioned in task, I've insalle
 
 ## Project structure
 
-I made a couple of aliases in order to support folder structure, although I was not strict when I import code as very often it was imported automaticaly, and in order to finish as much of tasks I didn't check aditionaly how code was imported.
+I made a couple of aliases in order to support folder structure, although I was not strict when I import code, as very often it was imported automaticaly, and in order to finish as much of tasks I didn't check aditionaly how code was imported.
 
 In components folder, you can find two folders **MyFormGenerator** and **PageGenerator** with components that were part of the homework.
 
