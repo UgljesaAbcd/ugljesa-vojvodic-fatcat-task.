@@ -11,7 +11,21 @@ interface User {
 }
 
 const fetchUsers = async (): Promise<User[]> => {
-    const response = await getByPathAndParams({ path: '/users' });
+    // this is how I like to make http request,
+    // usualy path variables is used to insert ids and other dynamic values in path itself,
+    // and params is used to make query from object.
+    // you can choose between these two options,
+    // just comment current path and params, and uncomment first two, path and pathVariables.
+    const response = await getByPathAndParams({
+        // path: '/users?_limit=:limit',
+        // pathVariables: {
+        //     limit: 5,
+        // },
+        path: '/users',
+        params: {
+            _limit: 5,
+        },
+    });
     if (response.status !== 200) {
         throw new Error('Network response was not ok');
     }
