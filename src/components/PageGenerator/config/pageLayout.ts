@@ -2,7 +2,7 @@ export const dataLayoutConfig = [
     {
         type: 'layoutSection',
         sectionKey: 1,
-        props: { backgroundColor: 'red' },
+        props: {},
         components: [
             {
                 type: 'componentHero',
@@ -14,7 +14,7 @@ export const dataLayoutConfig = [
     {
         type: 'layoutSection',
         sectionKey: 2,
-        props: { backgroundColor: 'blue' },
+        props: {},
         components: [
             {
                 type: 'componentItemsShowcase',
