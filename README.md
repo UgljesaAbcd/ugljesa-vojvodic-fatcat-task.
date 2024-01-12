@@ -1,4 +1,4 @@
-## Ugljesa Vojvodic solution
+# Ugljesa Vojvodic solution
 
 ## Undone parts of task
 
@@ -35,15 +35,40 @@ As I'm not that familiar with libraries that are mentioned in task, I've insalle
 
 ## Project structure
 
-I made a couple of aliases in order to support folder structure, although I was not strict when I import code, as very often it was imported automaticaly, and in order to finish as much of tasks I didn't check aditionaly how code was imported.
+**Aliases**
+
+I made a couple of aliases in order to support folder structure, although I was not strict when I import code, as very often it was imported automatically, and in order to finish as much of tasks I didn't check aditionaly how code was imported.
+
+**Task components**
 
 In components folder, you can find two folders **MyFormGenerator** and **PageGenerator** with components that were part of the homework.
 
 Both components been imported and shown in App.tsx.
 
+**Interfaces and custom hooks**
+
+These are some remarks for things that I didn't finish due to lack of time.
+
+Some logical part of javascript code that would be reusable and is part of component, I would replace in some custom hook.
+Also interfaces would also be places in interface folder/files.
+
+Example of possible folder/file structure:
+
+-   src/
+    -   components/
+        -   Component.tsx
+    -   hooks/
+        -   useCustomHook.ts
+    -   interfaces/
+        -   ComponentInterfaces.ts
+
+**Personal Contribution**
+
 I also added services folder with some methods that I use for making http requests.
 
-## Complete the following tasks
+---
+
+## Complete the following tasks (Old readme starts from here)
 
 ### Transfer the project to TypeScript
 
